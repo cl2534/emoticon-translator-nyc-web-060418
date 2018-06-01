@@ -1,6 +1,6 @@
 # require modules here
 
-require 'YAML' 
+require "yaml" 
 
 def load_library(file)
   yaml = YAML.load_file(file)
@@ -24,6 +24,12 @@ def get_japanese_emoticon(file, emoticon)
   "No emoticon found"
 end
 
-def get_english_meaning
-  # code goes here
+def get_english_meaning(file, emoticon)
+  result = load_library(file)
+  result["definition"].each do |key, meaning|
+    if key == emoticon 
+      meaning 
+    end 
+  end 
+  "No emoticon is found"
 end
