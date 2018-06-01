@@ -21,15 +21,15 @@ def get_japanese_emoticon(file, emoticon)
       return emote  
     end 
   end 
-  return "No emoticon found"
+  return "Sorry, that emoticon was not found"
 end
 
 def get_english_meaning(file, emoticon)
   result = load_library(file)
-  result["get_meaning"].each do |get, meaning|
-    if get == emoticon 
-      meaning 
+  result["get_meaning"].each do |key, meaning|
+    if key == emoticon 
+      return meaning 
     end 
   end 
-  "No emoticon is found"
+  return "No emoticon is found"
 end
